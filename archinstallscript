@@ -52,7 +52,7 @@ sudo pacman -Syyu
 sudo pacman -S reflector
 sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 sudo reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-sudo pacman -S go npm nodejs rustup python
+sudo pacman -S go npm rustup python
 go telemetry off
 rm -rf ~/.config/go
 rustup default stable
@@ -135,7 +135,6 @@ makepkg -rsi
 cd .. && rm -rf ~/.paru
 paru -S \
 mangowc-git \
-vicinae-git \
 macos-tahoe-cursor \
 ayugram-desktop-bin
 sudo systemctl enable fstrim.timer
