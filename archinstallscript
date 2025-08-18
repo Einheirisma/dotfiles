@@ -74,7 +74,7 @@ curl \
 sddm \
 wget \
 mesa \
-p7zip \
+7zip \
 go-yq \
 rsync \
 unzip \
