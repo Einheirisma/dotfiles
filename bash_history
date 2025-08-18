@@ -116,3 +116,5 @@ sudo git config --system user.name "Your Name"
 sudo git config --system user.email "your.email@example.com" 
 bat ~/.ssh/id_ed25519.pub 
 ssh -T git@github.com 
+
+sudo reflector --verbose --country 'RU,KZ,BY,TR,FI,PL,DE,NL' --protocol http --protocol https --latest 30 --fastest 10 --sort rate --age 12 --threads 20 --download-timeout 5 --save /etc/pacman.d/mirrorlist
