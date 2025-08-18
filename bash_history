@@ -1,0 +1,118 @@
+sudo -i 
+usermod -a -G wheel USERNAME 
+nvim /etc/sudoers 
+########################################################################### 
+## Uncomment to allow members of group wheel to execute any command 
+# %wheel ALL=(ALL:ALL) ALL 
+########################################################################### 
+logout 
+nmtui 
+mkdir -p ~/.config 
+git clone https://github.com/Einheirisma/dotfiles.git 
+mv ~/dotfiles/bash/ ~/dotfiles/blesh/ ~/dotfiles/btop/ ~/dotfiles/ghostty/ \ 
+~/dotfiles/mpv/ ~/dotfiles/nvim/ ~/dotfiles/tmux/ ~/.config/ 
+rm ~/.bash_profile ~/.bashrc ~/.bash_logout 
+sudo nvim /etc/bash.bashrc 
+########################################################################### 
+if [ -d /etc/bash/bashrc.d/ ]; then 
+    for f in /etc/bash/bashrc.d/*.sh; do 
+        [ -r "$f" ] && . "$f" 
+    done 
+    unset f 
+fi 
+
+if [ -s "${XDG_CONFIG_HOME:-$HOME/.config}/bash/.bash_profile" ]; then 
+    . "${XDG_CONFIG_HOME:-$HOME/.config}/bash/.bash_profile" 
+fi 
+########################################################################### 
+source ~/.config/bash/.bash_profile 
+mkdir -p ~/.cache/bash/ 
+mv ~/.bash_history $XDG_CACHE_HOME/bash/bash_history 
+sudo nvim /etc/pacman.conf 
+########################################################################### 
+Color 
+ILoveCandy 
+CheckSpace 
+VerbosePkgLists 
+ParallelDownloads = 10 
+[multilib] 
+Include = /etc/pacman.d/mirrorlist 
+########################################################################### 
+sudo pacman -Syyu 
+sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com 
+sudo pacman-key --lsign-key 3056513887B78AEB 
+sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 
+sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' 
+sudo nvim /etc/pacman.conf 
+########################################################################### 
+[chaotic-aur] 
+Include = /etc/pacman.d/chaotic-mirrorlist 
+########################################################################### 
+sudo pacman -Syyu 
+sudo pacman -S reflector 
+sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist 
+sudo reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist 
+sudo pacman -S go npm rustup python 
+go telemetry off 
+rm -rf ~/.config/go 
+rustup default stable 
+sudo pacman -S fd jq imv bat fzf git tar zip eza mpv tmux base btop curl sddm wget mesa 7zip go-yq rsync unzip unrar swaybg waybar neovim man-db openssh ghostty nautilus parallel nwg-look man-pages linux-lts blesh-git brave-bin xdg-utils base-devel noto-fonts apple-fonts ripgrep-all libva-utils imagemagick brightnessctl xorg-xwayland vulkan-radeon linux-firmware pacman-contrib noto-fonts-cjk wl-clipboard-rs noto-fonts-emoji vulkan-icd-loader linux-lts-headers libva-mesa-driver archlinux-keyring woff2-font-awesome xdg-desktop-portal-wlr 
+timedatectl set-ntp true 
+sudo mkdir /etc/pacman.d/hooks 
+sudo nvim /etc/pacman.d/hooks/paccache.hook 
+########################################################################### 
+[Trigger] 
+Operation = Upgrade 
+Operation = Install 
+Operation = Remove 
+Type = Package 
+Target = * 
+
+[Action] 
+Description = Cleaning pacman cache... 
+When = PostTransaction 
+Exec = /usr/bin/paccache -rk 2 
+########################################################################### 
+git clone https://aur.archlinux.org/paru.git ~/.paru 
+cd .paru 
+makepkg -rsi 
+cd .. && rm -rf ~/.paru 
+paru -S \ 
+mangowc-git \ 
+macos-tahoe-cursor \ 
+ayugram-desktop-bin 
+sudo systemctl enable fstrim.timer 
+sudo systemctl start fstrim.timer 
+sudo grub-mkconfig -o /boot/grub/grub.cfg 
+sudo nvim /etc/xdg/user-dirs.conf 
+########################################################################### 
+enabled=False 
+########################################################################### 
+mkdir ~/.downloads ~/.pictures 
+sudo systemctl enable sddm 
+git clone https://github.com/saatvik333/obscure-sddm-theme.git 
+sudo cp -r obscure-sddm-theme /usr/share/sddm/themes/obscure 
+rm ~/obscure-sddm-theme /etc/sddm.conf 
+mv ~/dotfiles/sddm/sddm.conf /etc/ 
+git clone https://github.com/vinceliuice/Colloid-icon-theme.git --depth=1 ~/.colloid-icon-theme 
+~/.colloid-icon-theme/install.sh --scheme default --theme default --bold 
+git clone https://github.com/vinceliuice/MacTahoe-gtk-theme.git --depth=1 ~/.mactahoe-gtk-theme 
+~/.mactahoe-gtk-theme/install.sh --dest $HOME/.local/share/themes --opacity normal --color dark --alt normal --theme default --scheme standard --highdefinition --round --darker 
+curl -L -o tx-02-berkeley-mono-pass=SCT.7z \ 
+     https://pixeldrain.com/api/file/gBNWHDr6 
+extract tx-02-berkeley-mono-pass\=SCT.7z 
+########################################################################### 
+SCT 
+########################################################################### 
+mv TX-02/ ~/.local/share/fonts 
+rm -rf ~/tx-02-berkeley-mono-pass=SCT.7z ~/TX-02 
+fc-cache -f -v 
+ssh-keygen -t ed25519 -C "your_email@example.com" 
+eval "$(ssh-agent -s)" 
+ssh-add ~/.ssh/id_ed25519 
+ssh-keyscan github.com >> ~/.ssh/known_hosts 
+# Они хранятся в /etc/gitconfig 
+sudo git config --system user.name "Your Name" 
+sudo git config --system user.email "your.email@example.com" 
+bat ~/.ssh/id_ed25519.pub 
+ssh -T git@github.com 
