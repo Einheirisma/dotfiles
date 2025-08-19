@@ -134,6 +134,7 @@ cd .paru
 makepkg -rsi
 cd .. && rm -rf ~/.paru
 paru -S \
+mmsg-git \
 mangowc-git \
 macos-tahoe-cursor \
 ayugram-desktop-bin
@@ -172,3 +173,4 @@ sudo git config --system user.name "Your Name"
 sudo git config --system user.email "your.email@example.com"
 bat ~/.ssh/id_ed25519.pub
 ssh -T git@github.com
+
