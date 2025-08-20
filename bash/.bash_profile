@@ -12,8 +12,14 @@ export BROWSER="/usr/bin/brave --ozone-platform-hint=wayland"
 
 # Follow XDG base dir specification
 export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# X11
+export XAUTHORITY="$XDG_CONFIG_HOME/X11/Xauthority"
+export XRESOURCES="$XDG_CONFIG_HOME/X11/Xresources"
+export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 
 # History files
 export HISTFILE="$XDG_CACHE_HOME/bash/bash_history"
