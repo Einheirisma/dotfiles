@@ -5,21 +5,15 @@ export PAGER="/usr/bin/nvim"
 export EDITOR="/usr/bin/nvim"
 export VISUAL="/usr/bin/nvim"
 export VIDEOPLAYER="/usr/bin/mpv"
-export IMAGEVIEWER="/usr/bin/imv"
-export TERMINAL="/usr/bin/ghostty"
+export IMAGEVIEWER="/usr/bin/feh"
+export TERMINAL="/usr/local/bin/st"
 export SUDO_EDITOR="/usr/bin/nvim"
-export BROWSER="/usr/bin/brave --ozone-platform-hint=wayland"
+export BROWSER="/usr/bin/qutebrowser"
 
 # Follow XDG base dir specification
 export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-
-# X11
-export XAUTHORITY="$XDG_CONFIG_HOME/X11/Xauthority"
-export XRESOURCES="$XDG_CONFIG_HOME/X11/Xresources"
-export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+export XDG_CACHE_HOME="$HOME/.cache"
 
 # History files
 export HISTFILE="$XDG_CACHE_HOME/bash/bash_history"
@@ -42,21 +36,25 @@ export FZF_DEFAULT_OPTS="--style full --color 16 --layout=reverse --height 30% -
 export FZF_CTRL_R_OPTS="--style full --color 16 --layout=reverse --height 30% --no-preview"
 
 # Important
-export XDG_CURRENT_DESKTOP=mango
-export XDG_SESSION_DESKTOP=mango
-export XDG_SESSION_TYPE=wayland
-export SDL_VIDEODRIVER=wayland
-export CLUTTER_BACKEND=wayland
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
-export ELECTRON_ENABLE_HARDWARE_ACCELERATION=1
-export QT_QPA_PLATFORM=wayland
-export QT_QPA_PLATFORMTHEME=qt6ct
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export QT_SCALE_FACTOR=1
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export _JAVA_AWT_WM_NONREPARENTING=1
-export GDK_BACKEND="wayland,x11,*"
-export GDK_SCALE=1
-export GDK_USE_PORTAL=1
-export MOZ_ENABLE_WAYLAND=1
-export WLR_NO_HARDWARE_CURSORS=1
+# export XDG_CURRENT_DESKTOP=mango
+# export XDG_SESSION_DESKTOP=mango
+# export XDG_SESSION_TYPE=wayland
+# export SDL_VIDEODRIVER=wayland
+# export CLUTTER_BACKEND=wayland
+# export ELECTRON_OZONE_PLATFORM_HINT=wayland
+# export ELECTRON_ENABLE_HARDWARE_ACCELERATION=1
+# export QT_QPA_PLATFORM=wayland
+# export QT_QPA_PLATFORMTHEME=qt6ct
+# export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+# export QT_SCALE_FACTOR=1
+# export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# export _JAVA_AWT_WM_NONREPARENTING=1
+# export GDK_BACKEND="wayland,x11,*"
+# export GDK_SCALE=1
+# export GDK_USE_PORTAL=1
+# export MOZ_ENABLE_WAYLAND=1
+# export WLR_NO_HARDWARE_CURSORS=1
+export XDG_SESSION_TYPE="x11"
+export XDG_SESSION_DESKTOP="dwm"
+export XDG_CURRENT_DESKTOP="dwm"
+export GDK_BACKEND="x11"
