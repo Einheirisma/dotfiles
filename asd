@@ -78,7 +78,6 @@ bat \
 fzf \
 git \
 tar \
-zip \
 eza \
 mpv \
 tmux \
@@ -91,8 +90,8 @@ mesa \
 xclip \
 go-yq \
 rsync \
-unzip \
 unrar \
+picom \
 neovim \
 man-db \
 libxft \
@@ -109,7 +108,6 @@ base-devel \
 noto-fonts \
 xorg-xinit \
 xorg-server \
-apple-fonts \
 ripgrep-all \
 libva-utils \
 qutebrowser \
@@ -121,7 +119,6 @@ linux-firmware \
 pacman-contrib \
 noto-fonts-cjk \
 noto-fonts-emoji \
-otf-font-awesome \
 vulkan-icd-loader \
 linux-lts-headers \
 libva-mesa-driver \
@@ -150,7 +147,6 @@ makepkg -rsi
 cd .. && rm -rf ~/.paru
 
 paru -S \
-    ttf-joypixels \
     macos-tahoe-cursor \
     ayugram-desktop-bin
 
@@ -162,11 +158,11 @@ enabled=False
 ###########################################################################
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-git clone https://github.com/vinceliuice/Colloid-icon-theme.git --depth=1 ~/.colloid-icon-theme
-~/.colloid-icon-theme/install.sh --scheme default --theme default --bold
-
-git clone https://github.com/vinceliuice/MacTahoe-gtk-theme.git --depth=1 ~/.mactahoe-gtk-theme
-~/.mactahoe-gtk-theme/install.sh --dest $HOME/.local/share/themes --opacity normal --color dark --alt normal --theme default --scheme standard --highdefinition --round --darker
+# git clone https://github.com/vinceliuice/Colloid-icon-theme.git --depth=1 ~/.colloid-icon-theme
+# ~/.colloid-icon-theme/install.sh --scheme default --theme default --bold
+#
+# git clone https://github.com/vinceliuice/MacTahoe-gtk-theme.git --depth=1 ~/.mactahoe-gtk-theme
+# ~/.mactahoe-gtk-theme/install.sh --dest $HOME/.local/share/themes --opacity normal --color dark --alt normal --theme default --scheme standard --highdefinition --round --darker
 
 curl -L -o tx-02-berkeley-mono-pass=SCT.7z \
      https://pixeldrain.com/api/file/gBNWHDr6
@@ -215,3 +211,63 @@ git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
 bat ~/.ssh/id_ed25519.pub
 ssh -T git@github.com
+
+
+
+
+# sudo pacman -S \
+# fd \
+# jq \
+# feh \
+# bat \
+# fzf \
+# git \
+# tar \
+# zip \
+# eza \
+# mpv \
+# tmux \
+# base \
+# btop \
+# curl \
+# wget \
+# mesa \
+# 7zip \
+# xclip \
+# go-yq \
+# rsync \
+# unzip \
+# unrar \
+# neovim \
+# man-db \
+# libxft \
+# libx11 \
+# openssh \
+# nautilus \
+# parallel \
+# nwg-look \
+# man-pages \
+# linux-lts \
+# blesh-git \
+# xdg-utils \
+# base-devel \
+# noto-fonts \
+# xorg-xinit \
+# xorg-server \
+# apple-fonts \
+# ripgrep-all \
+# libva-utils \
+# qutebrowser \
+# libxinerama \
+# imagemagick \
+# brightnessctl \
+# vulkan-radeon \
+# linux-firmware \
+# pacman-contrib \
+# noto-fonts-cjk \
+# noto-fonts-emoji \
+# otf-font-awesome \
+# vulkan-icd-loader \
+# linux-lts-headers \
+# libva-mesa-driver \
+# archlinux-keyring
