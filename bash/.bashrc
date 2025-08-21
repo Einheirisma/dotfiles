@@ -42,12 +42,10 @@ extract() {
     case "$1" in
         *.tar|*.tar.gz|*.tgz|*.tar.bz2|*.tbz2)
             tar xvf "$1" ;;
-        *.zip)
-            unzip "$1" ;;
+        *.zip|*.7z)
+            7z x "$1" ;;
         *.rar)
             unrar x "$1" ;;
-        *.7z)
-            7z x "$1" ;;
         *)
             echo "Error: Cannot extract '$1'. Unsupported file format."
             return 1 ;;
